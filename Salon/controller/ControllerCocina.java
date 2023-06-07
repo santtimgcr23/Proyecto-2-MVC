@@ -1,9 +1,11 @@
-package controller;
+package Salon.controller;
 
 import java.awt.Component;
 import java.util.ArrayList;
 
-import model.*;import view.*;
+import Objetos.*;
+import Salon.model.*;
+import Salon.view.*;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
@@ -20,22 +22,23 @@ public class ControllerCocina {
     Model model;
     ViewCocina vista;
 
-    public ControllerCocina(Model model, ViewCocina vista){
+    public ControllerCocina(Model model, ViewCocina vista) {
         this.model = model;
         this.vista = vista;
         agregarOrdenesAlJList();
         detalleEnVista();
     }
 
-    public void detalleEnVista(){
+    public void detalleEnVista() {
         JList<Orden> lista = vista.getOrdenList();
-        lista.addListSelectionListener(new ListSelectionListener(){
+        lista.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
                 Orden ordenSeleccionada = lista.getSelectedValue();
                 if (ordenSeleccionada != null) {
                     vista.getTxtOrden().setText(ordenSeleccionada.toString2());
                 }
-        }});
+            }
+        });
     }
 
     public void agregarOrdenesAlJList() {

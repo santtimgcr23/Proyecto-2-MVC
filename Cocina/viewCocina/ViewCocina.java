@@ -2,9 +2,10 @@ package Cocina.viewCocina;
 
 import javax.swing.JFrame;
 
-import java.awt.Font;
+import Salon.model.*;
+import Objetos.*;
 
-import model.*;
+import java.awt.Font;
 
 public class ViewCocina extends JFrame {
     public ViewCocina() {

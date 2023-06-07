@@ -1,4 +1,6 @@
-package model;
+package Salon.model;
+
+import Objetos.*;
 
 import java.util.ArrayList;
 
@@ -8,51 +10,49 @@ public class Model {
     public ArrayList<Mesa> mesasLibres = new ArrayList<Mesa>();
     public ArrayList<Mesa> mesasOcupadas = new ArrayList<Mesa>();
 
-
-    public Model(){
+    public Model() {
         crearMesas();
         listarLibresYOcupadas();
     }
 
-    public void crearMesas(){
-        for (int i = 0; i < 15; i++){
-            mesas.add(new Mesa(i+1, false));
+    public void crearMesas() {
+        for (int i = 0; i < 15; i++) {
+            mesas.add(new Mesa(i + 1, false));
         }
     }
 
-    public void listarLibresYOcupadas(){
-        for (int i = 0; i < mesas.size(); i++){
-            if (!(mesas.get(i).isOcupada())){
+    public void listarLibresYOcupadas() {
+        for (int i = 0; i < mesas.size(); i++) {
+            if (!(mesas.get(i).isOcupada())) {
                 mesasLibres.add(mesas.get(i));
-            }
-            else{
+            } else {
                 mesasOcupadas.add(mesas.get(i));
             }
         }
     }
 
-    public void moverMesas(){
-        for(int i = 0; i < mesasLibres.size(); i++){
-            if (mesasLibres.get(i).isOcupada()){
+    public void moverMesas() {
+        for (int i = 0; i < mesasLibres.size(); i++) {
+            if (mesasLibres.get(i).isOcupada()) {
                 mesasOcupadas.add(mesasLibres.get(i));
                 mesasLibres.remove(mesasLibres.get(i));
             }
         }
-        for(int i = 0; i < mesasOcupadas.size(); i++){
-            if (!(mesasLibres.get(i).isOcupada())){
+        for (int i = 0; i < mesasOcupadas.size(); i++) {
+            if (!(mesasLibres.get(i).isOcupada())) {
                 mesasLibres.add(mesasOcupadas.get(i));
                 mesasOcupadas.remove(mesasOcupadas.get(i));
             }
         }
     }
 
-    public void addOrden(Orden orden){
+    public void addOrden(Orden orden) {
         ordenes.add(orden);
     }
 
-    public void printOrdenes(){
+    public void printOrdenes() {
         System.out.println("ORDENES PENDIENTES: ");
-        for (Orden orden : ordenes){
+        for (Orden orden : ordenes) {
             System.out.println("------------------\n");
             System.out.println(orden.toString());
         }
@@ -90,5 +90,4 @@ public class Model {
         this.mesasOcupadas = mesasOcupadas;
     }
 
-    
 }

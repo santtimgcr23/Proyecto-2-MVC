@@ -1,15 +1,15 @@
-package model;
+package Objetos;
 
-public class Mesa{
+public class Mesa {
     int numero;
     boolean ocupada;
 
-    public Mesa(int numero, boolean ocupada){
+    public Mesa(int numero, boolean ocupada) {
         this.numero = numero;
         this.ocupada = ocupada;
     }
 
-    public String toString(){
+    public String toString() {
         return "Mesa " + numero;
     }
 

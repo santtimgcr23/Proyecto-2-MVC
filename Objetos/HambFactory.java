@@ -1,9 +1,9 @@
-package model;
+package Objetos;
 
 public class HambFactory {
-    
-    public static Hamburguesa cocinarHamburguesa(String name){
-        switch(name){
+
+    public static Hamburguesa cocinarHamburguesa(String name) {
+        switch (name) {
             case ("La Classic"):
                 return new HambClassic();
             case ("La Spectre"):

@@ -1,4 +1,4 @@
-package model;
+package Objetos;
 
 import java.util.Random;
 
@@ -9,14 +9,14 @@ public class Factura {
     Hamburguesa hamb;
     Orden orden;
 
-    public Factura(Orden orden){
+    public Factura(Orden orden) {
         this.codigo = orden.getCodigo();
         this.mesa = orden.getMesa();
         this.hamb = orden.getHamburguesa();
         this.precio = hamb.getPrecio();
     }
 
-    public String toString(){
+    public String toString() {
         String s = "\nLA COCINA DE ICEBOX\n";
         s += "ORDEN NÚMERO " + codigo + "";
         s += "\nDETALLES DE LA COMPRA:\n";
