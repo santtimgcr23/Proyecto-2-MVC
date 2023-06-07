@@ -1,11 +1,12 @@
-package view;
+package Cocina.viewCocina;
+
+import javax.swing.JFrame;
 
 import java.awt.Font;
 
 import model.*;
 
-public class ViewCocina extends javax.swing.JFrame {
-
+public class ViewCocina extends JFrame {
     public ViewCocina() {
         setTitle("Cocina");
         initComponents();
