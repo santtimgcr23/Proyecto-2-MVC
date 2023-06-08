@@ -2,13 +2,23 @@ package Salon.model;
 
 import Objetos.*;
 
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import java.io.IOException;
+
+import java.net.*;
+import java.io.*;
 
 public class Model {
     ArrayList<Orden> ordenes = new ArrayList<Orden>();
     public ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     public ArrayList<Mesa> mesasLibres = new ArrayList<Mesa>();
     public ArrayList<Mesa> mesasOcupadas = new ArrayList<Mesa>();
+
+    // instancias servidor
+    Socket client;
+    ObjectOutputStream output;
 
     public Model() {
         crearMesas();
@@ -48,6 +58,25 @@ public class Model {
 
     public void addOrden(Orden orden) {
         ordenes.add(orden);
+    }
+
+    public void enviarOrdenCliente(Orden orden) {
+        try {
+            System.out.println("Error");
+            client = new Socket("127.0.0.1", 5555);
+            System.out.println("Error");
+            output = new ObjectOutputStream(client.getOutputStream());
+            System.out.println("Error");
+            output.writeObject(orden);
+            System.out.println("Error");
+            output.flush();
+            System.out.println("Enviado correctamente!");
+
+            output.close();
+            client.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void printOrdenes() {

@@ -1,8 +1,9 @@
 package Objetos;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Orden {
+public class Orden implements Serializable {
     int mesa;
     Hamburguesa hamburguesa;
     int precio;

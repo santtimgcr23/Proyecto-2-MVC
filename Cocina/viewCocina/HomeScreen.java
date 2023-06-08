@@ -1,5 +1,8 @@
 package Cocina.viewCocina;
 
+import Cocina.controllerCocina.ControllerCocina;
+import Cocina.modelCocina.ModelCocina;
+
 public class HomeScreen extends javax.swing.JFrame {
     public HomeScreen() {
         setTitle("EL WAZIFICADOR");
@@ -75,7 +78,12 @@ public class HomeScreen extends javax.swing.JFrame {
     }
 
     private void btnTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {
-
+        ViewCocina VC = new ViewCocina();
+        VC.setVisible(true);
+        ModelCocina m = new ModelCocina();
+        ControllerCocina c = new ControllerCocina(m, VC);
+        c.model.AbrirServidor();
+        this.dispose();
     }
 
     /**

@@ -6,6 +6,7 @@ import Salon.view.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class ControllerClientes implements ActionListener {
     public Model model;
@@ -60,8 +61,10 @@ public class ControllerClientes implements ActionListener {
                         Hamburguesa h = hf.cocinarHamburguesa(vc.getHamburguesa());
                         Orden orden = new Orden(vc.getMesa(), h, h.getPrecio());
                         model.addOrden(orden);
+                        System.out.println("Información enviada");
                         ViewCocina vco = new ViewCocina();
                         ControllerCocina cc = new ControllerCocina(model, vco);
+                        cc.model.enviarOrdenCliente(orden);
                         vco.setVisible(true);
                     }
                 });
