@@ -2,10 +2,11 @@ package Salon.view;
 
 import java.awt.Font;
 
+import Objetos.Mesa;
 import Salon.model.*;
 
 public class ViewCliente extends javax.swing.JFrame {
-    int mesa;
+    Mesa mesa;
 
     String hamburguesa;
 
@@ -172,11 +173,11 @@ public class ViewCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    public int getMesa() {
+    public Mesa getMesa() {
         return mesa;
     }
 
-    public void setMesa(int mesa) {
+    public void setMesa(Mesa mesa) {
         this.mesa = mesa;
     }
 

@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class Orden implements Serializable {
-    int mesa;
+    Mesa mesa;
     Hamburguesa hamburguesa;
     int precio;
     String codigo;
     Factura factura;
     boolean completada = false;
 
-    public Orden(int mesa, Hamburguesa hamburguesa, int precio) {
+    public Orden(Mesa mesa, Hamburguesa hamburguesa, int precio) {
         this.mesa = mesa;
         this.codigo = generarCodigo();
         this.hamburguesa = hamburguesa;
@@ -40,11 +40,11 @@ public class Orden implements Serializable {
         this.completada = completada;
     }
 
-    public int getMesa() {
+    public Mesa getMesa() {
         return mesa;
     }
 
-    public void setMesa(int mesa) {
+    public void setMesa(Mesa mesa) {
         this.mesa = mesa;
     }
 
