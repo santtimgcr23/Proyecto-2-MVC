@@ -1,20 +1,71 @@
 package Cocina.controllerCocina;
 
-import Objetos.*;
-import Cocina.viewCocina.*;
-import Cocina.modelCocina.*;
-
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class ControllerCocina implements ActionListener {
+import Objetos.*;
+import Salon.model.*;
+import Salon.view.*;
+
+import javax.swing.BoxLayout;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListCellRenderer;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import Cocina.modelCocina.ModelCocina;
+import Cocina.viewCocina.ViewCocina;
+
+public class ControllerCocina {
     public ModelCocina model;
     ViewCocina vc;
 
     public ControllerCocina(ModelCocina model, ViewCocina vc) {
         this.model = model;
         this.vc = vc;
+        procesoAbrirServidor();
         // addActionListeners();
+    }
+
+    public void detalleEnVista() {
+        JList<Orden> lista = vc.getOrdenList();
+        lista.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                Orden ordenSeleccionada = lista.getSelectedValue();
+                if (ordenSeleccionada != null) {
+                    vc.getTxtOrden().setText(ordenSeleccionada.toString2());
+                }
+            }
+        });
+    }
+
+    public void agregarOrdenesAlJList() {
+        DefaultListModel<Orden> modelo = new DefaultListModel<>();
+        for (Orden orden : model.getOrdenes()) {
+            modelo.addElement(orden);
+        }
+        vc.getOrdenList().setModel(modelo);
+    }
+
+    public void procesoAbrirServidor() {
+        Thread hilo = new Thread(() -> {
+            while (true) {
+                System.out.println("SE HACE proceso");
+                Orden OrdenPorAnadir = model.AbrirServidor();
+                System.out.println(OrdenPorAnadir.toString());
+                model.addOrden(OrdenPorAnadir);
+                agregarOrdenesAlJList();
+                detalleEnVista();
+            }
+        });
+        hilo.start();
     }
 
     /*
@@ -68,9 +119,4 @@ public class ControllerCocina implements ActionListener {
      * });
      * }
      */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-    }
 }

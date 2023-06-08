@@ -1,6 +1,8 @@
 package Objetos;
 
-public class HambFactory {
+import java.io.Serializable;
+
+public class HambFactory implements Serializable {
 
     public static Hamburguesa cocinarHamburguesa(String name) {
         switch (name) {

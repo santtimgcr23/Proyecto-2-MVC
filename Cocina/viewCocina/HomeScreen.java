@@ -13,7 +13,6 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnCliente = new javax.swing.JButton();
         btnTrabajador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -25,14 +24,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Seleccione modo:");
-
-        btnCliente.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnCliente.setText("CLIENTE");
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
-            }
-        });
 
         btnTrabajador.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnTrabajador.setText("COCINA");
@@ -52,8 +43,6 @@ public class HomeScreen extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnTrabajador, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap()));
@@ -65,7 +54,6 @@ public class HomeScreen extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnTrabajador)
                                 .addContainerGap(37, Short.MAX_VALUE)));
@@ -82,7 +70,6 @@ public class HomeScreen extends javax.swing.JFrame {
         VC.setVisible(true);
         ModelCocina m = new ModelCocina();
         ControllerCocina c = new ControllerCocina(m, VC);
-        c.model.AbrirServidor();
         this.dispose();
     }
 
@@ -130,7 +117,6 @@ public class HomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnTrabajador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

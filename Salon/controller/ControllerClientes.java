@@ -60,12 +60,8 @@ public class ControllerClientes implements ActionListener {
                         HambFactory hf = new HambFactory();
                         Hamburguesa h = hf.cocinarHamburguesa(vc.getHamburguesa());
                         Orden orden = new Orden(vc.getMesa(), h, h.getPrecio());
-                        model.addOrden(orden);
                         System.out.println("Información enviada");
-                        ViewCocina vco = new ViewCocina();
-                        ControllerCocina cc = new ControllerCocina(model, vco);
-                        cc.model.enviarOrdenCliente(orden);
-                        vco.setVisible(true);
+                        model.enviarOrdenCliente(orden);
                     }
                 });
     }
