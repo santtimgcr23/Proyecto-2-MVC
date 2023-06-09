@@ -23,6 +23,14 @@ public abstract class Hamburguesa implements Serializable {
         return ingredientes;
     }
 
+    public void setIngredientes(ArrayList<String> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
     public int getPrecio() {
         return precio;
     }
@@ -32,7 +40,6 @@ public abstract class Hamburguesa implements Serializable {
         for (String ingrediente : ingredientes) {
             s += ingrediente + "\n";
         }
-        s += "PRECIO: C" + precio;
         return s;
     }
 

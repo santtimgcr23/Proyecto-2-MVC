@@ -11,6 +11,9 @@ import java.net.*;
 import java.io.*;
 
 public class Model {
+
+    int precioAc;
+
     Orden ordenServidor;
     Socket clientServidor;
     ServerSocket server;
@@ -104,6 +107,14 @@ public class Model {
             System.out.println("------------------\n");
             System.out.println(orden.toString());
         }
+    }
+
+    public int getPrecioAc() {
+        return precioAc;
+    }
+
+    public void setPrecioAc(int precioAc) {
+        this.precioAc = precioAc;
     }
 
     public ArrayList<Orden> getOrdenes() {

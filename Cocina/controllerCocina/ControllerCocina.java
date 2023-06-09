@@ -41,7 +41,8 @@ public class ControllerCocina {
             public void valueChanged(ListSelectionEvent e) {
                 Orden ordenSeleccionada = lista.getSelectedValue();
                 if (ordenSeleccionada != null) {
-                    vc.getTxtOrden().setText(ordenSeleccionada.toString2());
+                    vc.getTxtOrden()
+                            .setText(ordenSeleccionada.getHamburguesa().toString() + ordenSeleccionada.toString2());
                 }
             }
         });
@@ -64,8 +65,6 @@ public class ControllerCocina {
                 model.addOrden(OrdenPorAnadir);
                 agregarOrdenesAlJList();
                 detalleEnVista();
-                System.out.println("Prueba ordenes guardadas: ");
-                System.out.println(vc.getOrdenList());
             }
         });
         hilo.start();
