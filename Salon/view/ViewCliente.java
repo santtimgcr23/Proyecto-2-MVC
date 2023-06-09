@@ -18,11 +18,11 @@ public class ViewCliente extends javax.swing.JFrame {
     int precioActual;
 
     public ViewCliente() {
-        this.listaIngredientesActual = new ArrayList<>();
-        this.precioActual = 0;
-        setTitle("Cliente - Ordenar");
-        setLocationRelativeTo(null);
-        initComponents();
+this.listaIngredientesActual = new ArrayList<>();
+this.precioActual = 0;
+setTitle("Cliente - Ordenar");
+setLocationRelativeTo(null);
+initComponents();
     }
 
     private void initComponents() {
@@ -624,7 +624,17 @@ public class ViewCliente extends javax.swing.JFrame {
         pack();
     }
 
-    public ArrayList<String> getListaIngredientesActual() {
+    
+
+    public javax.swing.JTextArea getLblOrden() {
+        return lblOrden;
+}
+
+public void setLblOrden(javax.swing.JTextArea lblOrden) {
+        this.lblOrden = lblOrden;
+}
+
+public ArrayList<String> getListaIngredientesActual() {
         return listaIngredientesActual;
     }
 
@@ -867,7 +877,15 @@ public class ViewCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnCebolla;
     private javax.swing.JButton btnClassic;
     private javax.swing.JButton btnLechuga;
-    private javax.swing.JButton btnOdin;
+    public javax.swing.JButton getBtnTerminar() {
+        return btnTerminar;
+}
+
+public void setBtnTerminar(javax.swing.JButton btnTerminar) {
+        this.btnTerminar = btnTerminar;
+}
+
+private javax.swing.JButton btnOdin;
     private javax.swing.JButton btnOperator;
     private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton btnPan;

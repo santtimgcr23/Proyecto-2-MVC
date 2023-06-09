@@ -8,15 +8,18 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ControllerClientes implements ActionListener {
     public Model model;
+    ArrayList<Hamburguesa> lista;
     ViewSalon vs;
     ViewCliente vcActual;
 
     public ControllerClientes(Model model, ViewSalon vs) {
         this.model = model;
         this.vs = vs;
+        this.lista = new ArrayList<Hamburguesa>();
         procesoAbrirServidor();
     }
 
@@ -29,7 +32,6 @@ public class ControllerClientes implements ActionListener {
     public void procesoAbrirServidor() {
         Thread hilo = new Thread(() -> {
             while (true) {
-                System.out.println("Abre servidor salon");
                 Orden ordenPorEliminar = model.AbrirServidor();
                 // completa mesa en view
                 vs.getMesas()[ordenPorEliminar.getMesa().getNumero()].setBackground(new Color(202, 127, 104));
@@ -171,6 +173,21 @@ public class ControllerClientes implements ActionListener {
                     }
                 });
 
+        vcActual.getBtnTerminar().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+
+        vcActual.getBtnTerminar().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                model.enviarOrdenCliente(new Orden(vcActual.getMesa(), lista));
+                vcActual.dispose();
+                int mesaNumero = vcActual.getMesa().getNumero();
+                vs.getMesas()[mesaNumero].setBackground(Color.RED);
+            }
+        });
+
         vcActual.getBtnOrdenar().addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -180,15 +197,8 @@ public class ControllerClientes implements ActionListener {
                             h.setIngredientes(vcActual.getListaIngredientesActual());
                             h.setPrecio(model.getPrecioAc());
                         }
-
-                        Orden orden = new Orden(vcActual.getMesa(), h, h.getPrecio());
-                        System.out.println("Información enviada");
-                        System.out.println(vcActual.getMesa());
-                        model.enviarOrdenCliente(orden);
-                        vcActual.dispose();
-
-                        int mesaNumero = vcActual.getMesa().getNumero();
-                        vs.getMesas()[mesaNumero].setBackground(Color.RED);
+                        lista.add(h);
+                        vcActual.getLblOrden().setText(vcActual.getLblOrden().getText() + h.getNombre() + " $" + h.getPrecio() + "\n");
                     }
                 });
 

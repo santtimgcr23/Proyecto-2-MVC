@@ -7,7 +7,7 @@ import Cocina.modelCocina.ModelCocina;
 
 public class HomeScreen extends javax.swing.JFrame {
     public HomeScreen() {
-        setTitle("EL WAZIFICADOR");
+        setTitle("Inicio - Cocina");
         initComponents();
         this.getContentPane().setBackground(new Color(151, 127, 215));
     }

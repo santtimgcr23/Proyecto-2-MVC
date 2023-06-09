@@ -1,23 +1,11 @@
 package Cocina.controllerCocina;
-
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import Objetos.*;
-import Salon.model.*;
-import Salon.view.*;
 
-import javax.swing.Action;
-import javax.swing.BoxLayout;
-import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -42,7 +30,7 @@ public class ControllerCocina {
                 Orden ordenSeleccionada = lista.getSelectedValue();
                 if (ordenSeleccionada != null) {
                     vc.getTxtOrden()
-                            .setText(ordenSeleccionada.getHamburguesa().toString() + ordenSeleccionada.toString2());
+                            .setText(ordenSeleccionada.toString3());
                 }
             }
         });
@@ -59,9 +47,7 @@ public class ControllerCocina {
     public void procesoAbrirServidor() {
         Thread hilo = new Thread(() -> {
             while (true) {
-                System.out.println("SE HACE proceso");
                 Orden OrdenPorAnadir = model.AbrirServidor();
-                System.out.println(OrdenPorAnadir.toString());
                 model.addOrden(OrdenPorAnadir);
                 agregarOrdenesAlJList();
                 detalleEnVista();
@@ -78,7 +64,9 @@ public class ControllerCocina {
                 agregarOrdenesAlJList();
                 detalleEnVista();
                 model.enviarOrdenPorEliminar(ordenPorEliminar);
-
+                Factura f = new Factura(ordenPorEliminar);
+                f.agregarFactura();
+                vc.getTxtOrden().setText("");
             }
         });
     }

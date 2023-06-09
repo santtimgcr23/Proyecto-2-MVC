@@ -43,10 +43,8 @@ public class Model {
             clientServidor.close();
             server.close();
             String respuesta = ordenServidor.toString();
-            System.out.println(respuesta);
             return ordenServidor;
         } catch (Exception e) {
-            System.out.println(e);
             return ordenServidor;
         }
     }
@@ -92,20 +90,9 @@ public class Model {
             output = new ObjectOutputStream(client.getOutputStream());
             output.writeObject(orden);
             output.flush();
-            System.out.println("Enviado correctamente!");
-
             output.close();
             client.close();
         } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void printOrdenes() {
-        System.out.println("ORDENES PENDIENTES: ");
-        for (Orden orden : ordenes) {
-            System.out.println("------------------\n");
-            System.out.println(orden.toString());
         }
     }
 

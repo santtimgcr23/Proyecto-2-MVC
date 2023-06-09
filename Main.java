@@ -1,5 +1,3 @@
-import Salon.controller.*;
-import Salon.model.*;
 import Salon.view.*;
 
 //SALON SALON SALON SALON SALON

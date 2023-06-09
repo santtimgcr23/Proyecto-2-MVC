@@ -1,35 +1,39 @@
 package Objetos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Orden implements Serializable {
     Mesa mesa;
-    Hamburguesa hamburguesa;
+    ArrayList<Hamburguesa> hamburguesas;
     int precio;
     String codigo;
-    Factura factura;
     boolean completada = false;
 
-    public Orden(Mesa mesa, Hamburguesa hamburguesa, int precio) {
+    public Orden(Mesa mesa, ArrayList<Hamburguesa> hamburguesas) {
         this.mesa = mesa;
         this.codigo = generarCodigo();
-        this.hamburguesa = hamburguesa;
-        this.precio = precio;
+        this.hamburguesas = hamburguesas;
+        ponerPrecio();
     }
 
-    public Factura getFactura() {
-        return factura;
+    public void addHamburguesa(Hamburguesa h){
+        hamburguesas.add(h);
+    }
+
+    public void ponerPrecio(){
+        int total = 0;
+        for (int i = 0; i < hamburguesas.size(); i++) {
+            total += hamburguesas.get(i).getPrecio();
+        }
+        setPrecio(total);
     }
 
     public String generarCodigo() {
         Random r = new Random();
         int num = r.nextInt(999999);
         return String.format("%06d", num);
-    }
-
-    public void setFactura(Factura factura) {
-        this.factura = factura;
     }
 
     public boolean isCompletada() {
@@ -48,14 +52,6 @@ public class Orden implements Serializable {
         this.mesa = mesa;
     }
 
-    public Hamburguesa getHamburguesa() {
-        return hamburguesa;
-    }
-
-    public void setHamburguesa(Hamburguesa hamburguesa) {
-        this.hamburguesa = hamburguesa;
-    }
-
     public int getPrecio() {
         return precio;
     }
@@ -65,16 +61,22 @@ public class Orden implements Serializable {
     }
 
     public void facturarOrden() {
-        this.factura = new Factura(this);
+        Factura factura = new Factura(this);
+        factura.agregarFactura();
     }
 
     public String toString() {
         return "ORDEN #" + codigo;
     }
 
-    public String toString2() {
-        facturarOrden();
-        return factura.toString();
+
+    public String toString3() {
+        String s = "ORDEN # " + codigo + "\n";
+        for (int i = 0; i < hamburguesas.size(); i++){
+            s += hamburguesas.get(i).getNombre() + " $" + hamburguesas.get(i).getPrecio()+"\n";
+        }
+        s += "TOTAL: " + precio;
+        return s;   
     }
 
     public String getCodigo() {
@@ -85,4 +87,13 @@ public class Orden implements Serializable {
         this.codigo = codigo;
     }
 
+    public ArrayList<Hamburguesa> getHamburguesas() {
+        return hamburguesas;
+    }
+
+    public void setHamburguesas(ArrayList<Hamburguesa> hamburguesas) {
+        this.hamburguesas = hamburguesas;
+    }
+
+    
 }
