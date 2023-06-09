@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ControllerClientes implements ActionListener {
     public Model model;
@@ -28,6 +29,7 @@ public class ControllerClientes implements ActionListener {
         this.vcActual.setVisible(true);
         addActionListeners();
     }
+
 
     public void procesoAbrirServidor() {
         Thread hilo = new Thread(() -> {
@@ -173,11 +175,6 @@ public class ControllerClientes implements ActionListener {
                     }
                 });
 
-        vcActual.getBtnTerminar().addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                
-            }
-        });
 
         vcActual.getBtnTerminar().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -201,7 +198,29 @@ public class ControllerClientes implements ActionListener {
                         vcActual.getLblOrden().setText(vcActual.getLblOrden().getText() + h.getNombre() + " $" + h.getPrecio() + "\n");
                     }
                 });
-
+        
+        vcActual.getSimular().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                Random r2 = new Random();
+                int numHamburgers = r2.nextInt(5) + 1;
+                for (int i = 0; i < numHamburgers; i++) {
+                    Random randomA = new Random();
+                    int x = randomA.nextInt(4) + 1;
+                    String name = "";
+                    if (x == 1) {name = "La Classic";}
+                    else if (x == 2) {name = "La Spectre";}
+                    else if (x == 3) {name = "La Vandal";}
+                    else {name = "La Operator";}
+                    Hamburguesa hamburger = new HambFactory().cocinarHamburguesa(name);
+                    lista.add(hamburger);
+                }
+                model.enviarOrdenCliente(new Orden(vcActual.getMesa(), lista));
+                vcActual.dispose();
+                int mesaNumero = vcActual.getMesa().getNumero();
+                vs.getMesas()[mesaNumero].setBackground(Color.RED);
+            }
+        });
+        
     }
 
     @Override

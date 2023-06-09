@@ -32,6 +32,7 @@ initComponents();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnSpectre = new javax.swing.JButton();
+        simular = new javax.swing.JButton();
         btnClassic = new javax.swing.JButton();
         btnVandal = new javax.swing.JButton();
         btnOperator = new javax.swing.JButton();
@@ -215,6 +216,11 @@ initComponents();
         lblOrden.setRows(5);
         jScrollPane3.setViewportView(lblOrden);
 
+        simular.setBackground(new java.awt.Color(177, 222, 224));
+        simular.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+        simular.setText("Simular Orden");
+        simular.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         btnOrdenar.setBackground(new java.awt.Color(177, 222, 224));
         btnOrdenar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         btnOrdenar.setText("Ordenar");
@@ -277,6 +283,8 @@ initComponents();
                                                 .addGap(307, 307, 307)
                                                 .addComponent(btnOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 156,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(simular, javax.swing.GroupLayout.PREFERRED_SIZE, 156,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -593,6 +601,7 @@ initComponents();
                                                                 .createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.BASELINE)
                                                                 .addComponent(btnOrdenar)
+                                                                .addComponent(simular)
                                                                 .addComponent(btnTerminar)
                                                                 .addComponent(jLabel11))
                                                         .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -670,7 +679,17 @@ public ArrayList<String> getListaIngredientesActual() {
         return lblCebolla;
     }
 
-    public void setLblCebolla(JLabel lblCebolla) {
+    
+
+    public javax.swing.JButton getSimular() {
+        return simular;
+}
+
+public void setSimular(javax.swing.JButton simular) {
+        this.simular = simular;
+}
+
+public void setLblCebolla(JLabel lblCebolla) {
         this.lblCebolla = lblCebolla;
     }
 
@@ -923,5 +942,6 @@ private javax.swing.JButton btnOdin;
     private javax.swing.JLabel lblTomate;
     private javax.swing.JLabel lblTorta;
     private javax.swing.JList<String> listOrden;
+    private javax.swing.JButton simular;
 
 }
