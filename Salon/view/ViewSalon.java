@@ -3,9 +3,9 @@ package Salon.view;
 import javax.swing.*;
 
 import Objetos.Mesa;
+import Objetos.Observable;
+import Objetos.Observador;
 import Salon.controller.ControllerClientes;
-import Salon.controller.Observable;
-import Salon.controller.Observador;
 import Salon.model.Model;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package Salon.controller;
+package Objetos;
 
 public interface Observable {
 

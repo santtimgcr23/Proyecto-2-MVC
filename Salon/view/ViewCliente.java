@@ -7,8 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import Objetos.Mesa;
-import Salon.controller.Observable;
-import Salon.controller.Observador;
+import Objetos.Observable;
+import Objetos.Observador;
 import Salon.model.*;
 
 public class ViewCliente extends javax.swing.JFrame {
@@ -34,7 +34,6 @@ public class ViewCliente extends javax.swing.JFrame {
                 jPanel1 = new javax.swing.JPanel();
                 jLabel1 = new javax.swing.JLabel();
                 btnSpectre = new javax.swing.JButton();
-                simular = new javax.swing.JButton();
                 btnClassic = new javax.swing.JButton();
                 btnVandal = new javax.swing.JButton();
                 btnOperator = new javax.swing.JButton();
@@ -68,9 +67,10 @@ public class ViewCliente extends javax.swing.JFrame {
                 jScrollPane3 = new javax.swing.JScrollPane();
                 lblOrden = new javax.swing.JTextArea();
                 btnOrdenar = new javax.swing.JButton();
-                btnTerminar = new javax.swing.JButton();
                 jLabel11 = new javax.swing.JLabel();
                 lblPrecio = new javax.swing.JLabel();
+                btnTerminar = new javax.swing.JButton();
+                simular = new javax.swing.JButton();
 
                 jLabel9.setText("jLabel9");
 
@@ -109,7 +109,6 @@ public class ViewCliente extends javax.swing.JFrame {
                 btnOdin.setText("Odin (custom)");
                 btnOdin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-                lblIngredientes.setEditable(false);
                 lblIngredientes.setBackground(new java.awt.Color(255, 255, 255));
                 lblIngredientes.setColumns(20);
                 lblIngredientes.setRows(5);
@@ -218,20 +217,10 @@ public class ViewCliente extends javax.swing.JFrame {
                 lblOrden.setRows(5);
                 jScrollPane3.setViewportView(lblOrden);
 
-                simular.setBackground(new java.awt.Color(177, 222, 224));
-                simular.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-                simular.setText("Simular Orden");
-                simular.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
                 btnOrdenar.setBackground(new java.awt.Color(177, 222, 224));
                 btnOrdenar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
                 btnOrdenar.setText("Ordenar");
                 btnOrdenar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-                btnTerminar.setBackground(new java.awt.Color(177, 222, 224));
-                btnTerminar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-                btnTerminar.setText("Terminar Orden");
-                btnTerminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
                 jLabel11.setBackground(new java.awt.Color(177, 222, 224));
                 jLabel11.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -243,6 +232,16 @@ public class ViewCliente extends javax.swing.JFrame {
                 lblPrecio.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
                 lblPrecio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
                 lblPrecio.setOpaque(true);
+
+                btnTerminar.setBackground(new java.awt.Color(177, 222, 224));
+                btnTerminar.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+                btnTerminar.setText("Terminar orden");
+                btnTerminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+                simular.setBackground(new java.awt.Color(177, 222, 224));
+                simular.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
+                simular.setText("Simular");
+                simular.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -258,39 +257,45 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(510, 510, 510))
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGap(43, 43, 43)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addGroup(jPanel1Layout
+                                                                                                .createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                false)
+                                                                                                .addComponent(btnOperator,
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)
+                                                                                                .addComponent(btnVandal,
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)
+                                                                                                .addComponent(btnSpectre,
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)
+                                                                                                .addComponent(btnClassic,
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)
+                                                                                                .addComponent(btnOdin,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                172,
+                                                                                                                Short.MAX_VALUE))
+                                                                                .addComponent(btnOrdenar,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                156,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addGroup(jPanel1Layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                                                 .addGroup(jPanel1Layout
                                                                                                 .createSequentialGroup()
-                                                                                                .addGap(43, 43, 43)
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                                false)
-                                                                                                                .addComponent(btnOperator,
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE)
-                                                                                                                .addComponent(btnVandal,
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE)
-                                                                                                                .addComponent(btnSpectre,
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE)
-                                                                                                                .addComponent(btnClassic,
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE)
-                                                                                                                .addComponent(btnOdin,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                172,
-                                                                                                                                Short.MAX_VALUE))
                                                                                                 .addGap(30, 30, 30)
                                                                                                 .addComponent(jScrollPane1,
                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -298,20 +303,15 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                 .addGroup(jPanel1Layout
                                                                                                 .createSequentialGroup()
-                                                                                                .addGap(307, 307, 307)
-                                                                                                .addComponent(btnOrdenar,
+                                                                                                .addGap(95, 95, 95)
+                                                                                                .addComponent(simular,
                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                 156,
                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                .addComponent(simular,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                156,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(jPanel1Layout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                false)
+                                                                .addGap(34, 34, 34)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                false)
                                                                                 .addGroup(jPanel1Layout
                                                                                                 .createSequentialGroup()
                                                                                                 .addGap(34, 34, 34)
@@ -325,174 +325,167 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                                 Short.MAX_VALUE))
                                                                                 .addGroup(jPanel1Layout
+                                                                                                .createSequentialGroup()
+                                                                                                .addComponent(jLabel1,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                164,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addComponent(lblPan,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                44,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(jPanel1Layout
+                                                                                                .createSequentialGroup()
+                                                                                                .addComponent(jLabel8,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                164,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addComponent(lblPepinillos,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                44,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addComponent(btnPepinillos,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                50,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(jPanel1Layout
+                                                                                                .createSequentialGroup()
+                                                                                                .addComponent(jLabel4,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                164,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addComponent(lblQueso,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                44,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addComponent(btnQueso,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                50,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(jPanel1Layout
+                                                                                                .createSequentialGroup()
+                                                                                                .addComponent(jLabel6,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                164,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addComponent(lblTomate,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                44,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(jPanel1Layout
                                                                                                 .createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                false)
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addComponent(jLabel1,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                164,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addPreferredGap(
-                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(lblPan,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                44,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addComponent(jLabel8,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                164,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addPreferredGap(
-                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(lblPepinillos,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                44,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(18, 18, 18)
-                                                                                                                .addComponent(btnPepinillos,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                50,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addComponent(jLabel4,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                164,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addPreferredGap(
-                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(lblQueso,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                44,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(18, 18, 18)
-                                                                                                                .addComponent(btnQueso,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                50,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addComponent(jLabel6,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                164,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addPreferredGap(
-                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(lblTomate,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                44,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                .addComponent(btnTomate,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                50,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                 .addGroup(jPanel1Layout
                                                                                                                 .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                .addComponent(btnTomate,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                50,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanel1Layout
                                                                                                                                 .createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                .addGroup(jPanel1Layout
-                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                                                .addComponent(btnPan,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                50,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addGroup(
-                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                                                jPanel1Layout.createSequentialGroup()
-                                                                                                                                                                                .addComponent(jLabel3,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                164,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                                                .addPreferredGap(
-                                                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                                                                                .addComponent(lblTorta,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                44,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                                                .addGap(18, 18, 18)
-                                                                                                                                                                                .addComponent(btnTorta,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                50,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                                                .addGroup(jPanel1Layout
-                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                .addComponent(jLabel5,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                164,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addPreferredGap(
-                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                                                .addComponent(lblLechuga,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                44,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addGap(18, 18, 18)
-                                                                                                                                                .addComponent(btnLechuga,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                50,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addComponent(jLabel7,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                164,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addPreferredGap(
-                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(lblCebolla,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                44,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(18, 18, 18)
-                                                                                                                .addComponent(btnCebolla,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE))))
+                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                .addComponent(btnPan,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                50,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                                                jPanel1Layout.createSequentialGroup()
+                                                                                                                                                                .addComponent(jLabel3,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                164,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                                                                .addComponent(lblTorta,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                44,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                                .addComponent(btnTorta,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                50,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                .createSequentialGroup()
+                                                                                                                                .addComponent(jLabel5,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                164,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addPreferredGap(
+                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                                .addComponent(lblLechuga,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                44,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                .addComponent(btnLechuga,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                50,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                                .addGroup(jPanel1Layout
+                                                                                                .createSequentialGroup()
+                                                                                                .addComponent(jLabel7,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                164,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addComponent(lblCebolla,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                44,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addComponent(btnCebolla,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)))
                                                                 .addGroup(jPanel1Layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                                                 .addGroup(jPanel1Layout
-                                                                                                .createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .createSequentialGroup()
+                                                                                                .addGap(18, 18, Short.MAX_VALUE)
+                                                                                                .addComponent(jScrollPane2,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                180,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addComponent(jScrollPane3,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                218,
+                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addGap(238, 238, 238))
+                                                                                .addGroup(jPanel1Layout
+                                                                                                .createSequentialGroup()
                                                                                                 .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(18, 18, Short.MAX_VALUE)
-                                                                                                                .addComponent(jScrollPane2,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                180,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(18, 18, 18)
-                                                                                                                .addComponent(jScrollPane3,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(222, 222,
-                                                                                                                                222))
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(148, 148,
-                                                                                                                                148)
-                                                                                                                .addComponent(jLabel10)
-                                                                                                                .addContainerGap(
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE)))
-                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(136, 136,
-                                                                                                                                136)
-                                                                                                                .addComponent(btnTerminar,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                156,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(380, 380,
-                                                                                                                                380)))));
+                                                                                                                .createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                .createSequentialGroup()
+                                                                                                                                .addGap(148, 148,
+                                                                                                                                                148)
+                                                                                                                                .addComponent(jLabel10))
+                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                .createSequentialGroup()
+                                                                                                                                .addGap(143, 143,
+                                                                                                                                                143)
+                                                                                                                                .addComponent(btnTerminar,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                156,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                .addContainerGap(
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)))));
                 jPanel1Layout.setVerticalGroup(
                                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout
@@ -538,105 +531,73 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                                                                                                                                                 javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                                                                                                 .addGroup(jPanel1Layout
                                                                                                                                                                                                                 .createSequentialGroup()
-                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                jPanel1Layout
+                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                .createSequentialGroup()
+                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
                                                                                                                                                                                                                                                                                 .createSequentialGroup()
-                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                                                lblTorta,
-                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                                                                                                                                                                                                                29,
-                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                                                btnTorta,
-                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                                                                                                                                                                                                                29,
-                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                                                jLabel3))
-                                                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                                                                                                                                                                                                                                                                                .addGap(18,
-                                                                                                                                                                                                                                                                                                                                                                                                                                18,
-                                                                                                                                                                                                                                                                                                                                                                                                                                18)
-                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel4))
-                                                                                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                                                                                                                                                                                                                                                                                .addGap(18,
-                                                                                                                                                                                                                                                                                                                                                                                                                                18,
-                                                                                                                                                                                                                                                                                                                                                                                                                                18)
-                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                                                                                btnQueso,
-                                                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                                                                                                                                                                                                                                                29,
-                                                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                lblQueso,
+                                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                .addComponent(lblTorta,
+                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                                                                                                                                                29,
+                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                .addComponent(btnTorta,
+                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                                                                                                                                                29,
+                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                .addComponent(jLabel3))
+                                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                                                                                                                                                                                .addComponent(jLabel4))
+                                                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                                                                                                                                                                                .addComponent(btnQueso,
                                                                                                                                                                                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                                                                                                                                                                                                 29,
-                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                                                                                                                                                                                                                .addGap(18,
-                                                                                                                                                                                                                                                                                                                                                                18,
-                                                                                                                                                                                                                                                                                                                                                                18)
-                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                jLabel5))
-                                                                                                                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                                                                                                                                                                                                                .addGap(18,
-                                                                                                                                                                                                                                                                                                                                                                18,
-                                                                                                                                                                                                                                                                                                                                                                18)
-                                                                                                                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                                                                                                                btnLechuga,
-                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                                                                                                                                                                                29,
-                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                lblLechuga,
-                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                                                                                29,
-                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                                                                                                                .addGap(18, 18,
-                                                                                                                                                                                                                                18)
-                                                                                                                                                                                                                .addGroup(
-                                                                                                                                                                                                                                jPanel1Layout
-                                                                                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                jLabel6)
-                                                                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                                                                lblTomate,
-                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                                                                                29,
-                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                                                                                                                                                                                                                .addComponent(lblQueso,
+                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                                                                                                                29,
+                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                                .createSequentialGroup()
+                                                                                                                                                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                                                                                                                                                .addComponent(jLabel5))
+                                                                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                                                                .createSequentialGroup()
+                                                                                                                                                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                                                                                                                                                .addComponent(btnLechuga,
+                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                                                                                                                                29,
+                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                                                                                                                                                                                .addComponent(lblLechuga,
+                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                                                                                29,
+                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                                                                                                                .addComponent(jLabel6)
+                                                                                                                                                                                                                                .addComponent(lblTomate,
+                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                                                                                29,
+                                                                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                                                                                                                                                 .addComponent(btnTomate,
                                                                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                                                                                 29,
@@ -646,8 +607,7 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                                                                                                                                 .createParallelGroup(
                                                                                                                                                                                                                 javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                                                                                                 .addComponent(jLabel7)
-                                                                                                                                                                                                .addComponent(
-                                                                                                                                                                                                                lblCebolla,
+                                                                                                                                                                                                .addComponent(lblCebolla,
                                                                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                                                                                 29,
                                                                                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -683,19 +643,25 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                                 .addGap(28, 28, 28)
                                                                                                 .addGroup(jPanel1Layout
                                                                                                                 .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanel1Layout
                                                                                                                                 .createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                                .addComponent(btnOrdenar)
-                                                                                                                                .addComponent(simular)
-                                                                                                                                .addComponent(btnTerminar)
-                                                                                                                                .addComponent(jLabel11))
-                                                                                                                .addComponent(lblPrecio,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                29,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGap(149, 149, 149))
+                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                                .createParallelGroup(
+                                                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                                                .addComponent(btnOrdenar)
+                                                                                                                                                .addComponent(jLabel11)
+                                                                                                                                                .addComponent(simular))
+                                                                                                                                .addComponent(lblPrecio,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                29,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                .addGroup(jPanel1Layout
+                                                                                                                                .createSequentialGroup()
+                                                                                                                                .addGap(2, 2, 2)
+                                                                                                                                .addComponent(btnTerminar)))
+                                                                                                .addGap(147, 147, 147))
                                                                                 .addGroup(jPanel1Layout
                                                                                                 .createSequentialGroup()
                                                                                                 .addComponent(btnClassic)
@@ -707,7 +673,8 @@ public class ViewCliente extends javax.swing.JFrame {
                                                                                                 .addComponent(btnOperator)
                                                                                                 .addGap(40, 40, 40)
                                                                                                 .addComponent(btnOdin)
-                                                                                                .addContainerGap()))));
+                                                                                                .addGap(238, 238,
+                                                                                                                238)))));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);

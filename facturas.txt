@@ -60,3 +60,47 @@ PRECIO: $1600
 TOTAL: $12000
 ¡GRACIAS POR SU VISITA!
 ---------------------------
+---------------------------
+LA COCINA DE ICEBOX
+ORDEN NÚMERO 371367
+DETALLES DE LA COMPRA:
+La Vandal
+PRECIO: $4000
+
+TOTAL: $4000
+¡GRACIAS POR SU VISITA!
+---------------------------
+---------------------------
+LA COCINA DE ICEBOX
+ORDEN NÚMERO 462095
+DETALLES DE LA COMPRA:
+
+TOTAL: $0
+¡GRACIAS POR SU VISITA!
+---------------------------
+---------------------------
+LA COCINA DE ICEBOX
+ORDEN NÚMERO 986079
+DETALLES DE LA COMPRA:
+La Spectre
+PRECIO: $1600
+La Spectre
+PRECIO: $1600
+La Operator
+PRECIO: $4700
+La Vandal
+PRECIO: $4000
+
+TOTAL: $11900
+¡GRACIAS POR SU VISITA!
+---------------------------
+---------------------------
+LA COCINA DE ICEBOX
+ORDEN NÚMERO 116564
+DETALLES DE LA COMPRA:
+La Vandal
+PRECIO: $4000
+
+TOTAL: $4000
+¡GRACIAS POR SU VISITA!
+---------------------------
