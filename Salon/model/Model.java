@@ -11,6 +11,11 @@ import java.net.*;
 import java.io.*;
 
 public class Model {
+    Orden ordenServidor;
+    Socket clientServidor;
+    ServerSocket server;
+    ObjectInputStream input;
+
     ArrayList<Orden> ordenes = new ArrayList<Orden>();
     public ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     public ArrayList<Mesa> mesasLibres = new ArrayList<Mesa>();
@@ -23,6 +28,24 @@ public class Model {
     public Model() {
         crearMesas();
         listarLibresYOcupadas();
+    }
+
+    public Orden AbrirServidor() {
+        try {
+            server = new ServerSocket(7777);
+            clientServidor = server.accept();
+            input = new ObjectInputStream(clientServidor.getInputStream());
+            ordenServidor = (Orden) input.readObject();
+            input.close();
+            clientServidor.close();
+            server.close();
+            String respuesta = ordenServidor.toString();
+            System.out.println(respuesta);
+            return ordenServidor;
+        } catch (Exception e) {
+            System.out.println(e);
+            return ordenServidor;
+        }
     }
 
     public void crearMesas() {
@@ -62,13 +85,9 @@ public class Model {
 
     public void enviarOrdenCliente(Orden orden) {
         try {
-            System.out.println("Error");
             client = new Socket("127.0.0.1", 5555);
-            System.out.println("Error");
             output = new ObjectOutputStream(client.getOutputStream());
-            System.out.println("Error");
             output.writeObject(orden);
-            System.out.println("Error");
             output.flush();
             System.out.println("Enviado correctamente!");
 

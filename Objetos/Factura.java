@@ -1,10 +1,11 @@
 package Objetos;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Factura {
+public class Factura implements Serializable {
     String codigo;
-    int mesa;
+    Mesa mesa;
     int precio;
     Hamburguesa hamb;
     Orden orden;

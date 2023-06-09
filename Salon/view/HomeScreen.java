@@ -1,7 +1,10 @@
 package Salon.view;
 
+import java.awt.Color;
+
 import Salon.controller.*;
 import Salon.model.*;
+import Salon.view.*;
 
 public class HomeScreen extends javax.swing.JFrame {
 
@@ -9,6 +12,7 @@ public class HomeScreen extends javax.swing.JFrame {
         setTitle("INICIO");
         setLocationRelativeTo(null);
         initComponents();
+        this.getContentPane().setBackground(new Color(156, 207, 231));
     }
 
     private void initComponents() {
@@ -21,7 +25,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("La Cocina de Icebox");
+        jLabel1.setText("Restaurante de pearl");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -64,12 +68,10 @@ public class HomeScreen extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {
-        ViewCliente vc = new ViewCliente();
         ViewSalon vs = new ViewSalon();
         vs.setVisible(true);
-        Model m = new Model();
-        ControllerClientes c = new ControllerClientes(m, vc);
-        this.dispose();}
+        this.dispose();
+    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnCliente;

@@ -9,6 +9,7 @@ import Objetos.*;
 import Salon.model.*;
 import Salon.view.*;
 
+import javax.swing.Action;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
@@ -31,7 +32,7 @@ public class ControllerCocina {
         this.model = model;
         this.vc = vc;
         procesoAbrirServidor();
-        // addActionListeners();
+        addActionListeners();
     }
 
     public void detalleEnVista() {
@@ -63,9 +64,24 @@ public class ControllerCocina {
                 model.addOrden(OrdenPorAnadir);
                 agregarOrdenesAlJList();
                 detalleEnVista();
+                System.out.println("Prueba ordenes guardadas: ");
+                System.out.println(vc.getOrdenList());
             }
         });
         hilo.start();
+    }
+
+    public void addActionListeners() {
+        vc.getBtnCompletar().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Orden ordenPorEliminar = vc.getOrdenList().getSelectedValue();
+                model.eliminarOrden(ordenPorEliminar);
+                agregarOrdenesAlJList();
+                detalleEnVista();
+                model.enviarOrdenPorEliminar(ordenPorEliminar);
+
+            }
+        });
     }
 
     /*

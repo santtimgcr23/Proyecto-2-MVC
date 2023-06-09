@@ -25,10 +25,15 @@ import Objetos.*;
 
 public class ModelCocina {
 
+    // servidor instancias
     Orden ordenServidor;
     Socket client;
     ServerSocket server;
     ObjectInputStream input;
+
+    // cliente instancias
+    Socket cliente;
+    ObjectOutputStream output;
 
     ArrayList<Orden> ordenes = new ArrayList<Orden>();
     public ArrayList<Mesa> mesas = new ArrayList<Mesa>();
@@ -56,6 +61,21 @@ public class ModelCocina {
         } catch (Exception e) {
             System.out.println(e);
             return ordenServidor;
+        }
+    }
+
+    public void enviarOrdenPorEliminar(Orden orden) {
+        try {
+            cliente = new Socket("127.0.0.1", 7777);
+            output = new ObjectOutputStream(cliente.getOutputStream());
+            output.writeObject(orden);
+            output.flush();
+            System.out.println("Enviado correctamente!");
+
+            output.close();
+            cliente.close();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -99,6 +119,16 @@ public class ModelCocina {
         for (Orden orden : ordenes) {
             System.out.println("------------------\n");
             System.out.println(orden.toString());
+        }
+    }
+
+    public void eliminarOrden(Orden orden) {
+        int pivote = 0;
+        while (ordenes.get(pivote) != orden) {
+            pivote++;
+        }
+        if (ordenes.get(pivote) == orden) {
+            ordenes.remove(pivote);
         }
     }
 

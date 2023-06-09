@@ -1,5 +1,7 @@
 package Cocina.viewCocina;
 
+import java.awt.Color;
+
 import Cocina.controllerCocina.ControllerCocina;
 import Cocina.modelCocina.ModelCocina;
 
@@ -7,6 +9,7 @@ public class HomeScreen extends javax.swing.JFrame {
     public HomeScreen() {
         setTitle("EL WAZIFICADOR");
         initComponents();
+        this.getContentPane().setBackground(new Color(151, 127, 215));
     }
 
     private void initComponents() {
@@ -23,10 +26,11 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Seleccione modo:");
+        jLabel2.setText("Seleccione donde quiere ingresar:");
+        jLabel2.setBackground(new Color(151, 127, 215));
 
         btnTrabajador.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnTrabajador.setText("COCINA");
+        btnTrabajador.setText("Entrar a la COCINA");
         btnTrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTrabajadorActionPerformed(evt);
@@ -57,7 +61,6 @@ public class HomeScreen extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnTrabajador)
                                 .addContainerGap(37, Short.MAX_VALUE)));
-
         pack();
     }// </editor-fold>
 

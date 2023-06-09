@@ -1,6 +1,8 @@
 package Objetos;
 
-public class Mesa {
+import java.io.Serializable;
+
+public class Mesa implements Serializable {
     int numero;
     boolean ocupada;
 
