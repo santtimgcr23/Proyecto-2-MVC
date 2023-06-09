@@ -4,7 +4,6 @@ import Objetos.*;
 
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
 import java.io.IOException;
 
 import java.net.*;

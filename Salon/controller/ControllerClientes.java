@@ -11,16 +11,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ControllerClientes implements ActionListener {
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+public class ControllerClientes implements ActionListener, Observable {
     public Model model;
     ArrayList<Hamburguesa> lista;
     ViewSalon vs;
     ViewCliente vcActual;
 
+    ArrayList<Observador> observadores;
+
     public ControllerClientes(Model model, ViewSalon vs) {
         this.model = model;
         this.vs = vs;
         this.lista = new ArrayList<Hamburguesa>();
+        this.observadores = new ArrayList<Observador>();
         procesoAbrirServidor();
     }
 
@@ -30,14 +35,12 @@ public class ControllerClientes implements ActionListener {
         addActionListeners();
     }
 
-
     public void procesoAbrirServidor() {
         Thread hilo = new Thread(() -> {
             while (true) {
                 Orden ordenPorEliminar = model.AbrirServidor();
                 // completa mesa en view
-                vs.getMesas()[ordenPorEliminar.getMesa().getNumero()].setBackground(new Color(202, 127, 104));
-                vs.getMesas()[ordenPorEliminar.getMesa().getNumero()].getMesa().setOcupada(false);
+                notificar(ordenPorEliminar.getMesa().getNumero());
             }
         });
         hilo.start();
@@ -175,7 +178,6 @@ public class ControllerClientes implements ActionListener {
                     }
                 });
 
-
         vcActual.getBtnTerminar().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 model.enviarOrdenCliente(new Orden(vcActual.getMesa(), lista));
@@ -195,22 +197,28 @@ public class ControllerClientes implements ActionListener {
                             h.setPrecio(model.getPrecioAc());
                         }
                         lista.add(h);
-                        vcActual.getLblOrden().setText(vcActual.getLblOrden().getText() + h.getNombre() + " $" + h.getPrecio() + "\n");
+                        vcActual.getLblOrden().setText(
+                                vcActual.getLblOrden().getText() + h.getNombre() + " $" + h.getPrecio() + "\n");
                     }
                 });
-        
+
         vcActual.getSimular().addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 Random r2 = new Random();
                 int numHamburgers = r2.nextInt(5) + 1;
                 for (int i = 0; i < numHamburgers; i++) {
                     Random randomA = new Random();
                     int x = randomA.nextInt(4) + 1;
                     String name = "";
-                    if (x == 1) {name = "La Classic";}
-                    else if (x == 2) {name = "La Spectre";}
-                    else if (x == 3) {name = "La Vandal";}
-                    else {name = "La Operator";}
+                    if (x == 1) {
+                        name = "La Classic";
+                    } else if (x == 2) {
+                        name = "La Spectre";
+                    } else if (x == 3) {
+                        name = "La Vandal";
+                    } else {
+                        name = "La Operator";
+                    }
                     Hamburguesa hamburger = new HambFactory().cocinarHamburguesa(name);
                     lista.add(hamburger);
                 }
@@ -220,7 +228,7 @@ public class ControllerClientes implements ActionListener {
                 vs.getMesas()[mesaNumero].setBackground(Color.RED);
             }
         });
-        
+
     }
 
     @Override
@@ -344,6 +352,20 @@ public class ControllerClientes implements ActionListener {
         vcActual.getBtnCebolla().setEnabled(false);
         vcActual.getBtnPepinillos().setEnabled(false);
 
+    }
+
+    @Override
+    public void addObsserver(Observador observer) {
+        observadores.add(observer);
+    }
+
+    @Override
+    public void removerObserver(Observador observer) {
+        observadores.remove(observer);
+    }
+
+    private void notificar(int numeroMesa) {
+        observadores.get(0).update(numeroMesa);
     }
 
 }
